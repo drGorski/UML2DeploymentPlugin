@@ -15,11 +15,7 @@ public class NodeConfigGenerator {
 
     public void generateNodesConfiguration() {
         Generator.getInstance().generate("/Users/jakub.bednarski/Desktop/uml2Corda/upload",
-                NodeRetriver.getInstance().getNodes()
-                        .stream()
-                        .filter(vpnode -> vpnode.getTaggedValues() != null)
-                        .map(vpnode -> Node.builder().build())
-                        .collect(Collectors.toList()));
+                NodeRetriver.getInstance().getNodes());
 
     }
 
