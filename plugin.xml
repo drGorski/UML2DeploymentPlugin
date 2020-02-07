@@ -1,0 +1,23 @@
+<plugin
+        id="pl.gdynia.amw.corda.vp.plugin"
+        name="Generate Corda Code"
+        description="Generate Corda Code"
+        provider="Jakub Bednarski @ AMW"
+        class="pl.gdynia.amw.corda.vp.plugin.CordaGenerator">
+
+    <actionSets>
+        <actionSet id="pl.gdynia.amw.uml2corda.plugin.actionset">
+            <action
+                    id="pl.gdynia.amw.corda.vp.plugin.node.NodeGeneratorActionController"
+                    actionType="generalAction"
+                    label="Generate Node configuration"
+                    tooltip="Generate Node configuration"
+                    style="normal"
+                    menuPath="Tools/Report">
+                <actionController
+                        class="pl.gdynia.amw.corda.vp.plugin.node.NodeGeneratorActionController"/>
+            </action>
+        </actionSet>
+    </actionSets>
+
+</plugin>
