@@ -2,23 +2,34 @@ package pl.gdynia.amw.corda.vp.plugin.node;
 
 import com.vp.plugin.model.INode;
 import com.vp.plugin.model.ITaggedValue;
-import org.apache.commons.lang.StringUtils;
 import pl.gdynia.amw.dictionary.TaggedValuesDict;
-import pl.gdynia.amw.model.TaggedValues;
-
+import pl.gdynia.amw.model.node.Node;
 
 public class NodeAssembler {
 
-    public static TaggedValues buildNode(INode vpNode) {
-        TaggedValues node = new TaggedValues();
+    private static NodeAssembler INSTANCE = new NodeAssembler();
 
-        TaggedValuesDict.getInstance().getValues().forEach(tv -> {
-            ITaggedValue vpTaggedValue = vpNode.getTaggedValues().getTaggedValueByName(tv.getValue());
-            if (vpTaggedValue != null && StringUtils.isNotBlank(vpTaggedValue.getValueAsText())) {
-                node.getProperties().put(tv.getValue(), vpTaggedValue.getValueAsText());
-            }
-        });
+    private NodeAssembler() {
+
+    }
+
+    public Node buildNode(INode vpNode, Node node) {
+        TaggedValuesDict.getInstance().getValues()
+                .forEach(tv -> node.getProperties().put(tv.getValue(), readTaggedValue(tv.getValue(), vpNode)));
 
         return node;
+    }
+
+    private Object readTaggedValue(String key, INode vpNode) {
+        ITaggedValue vpTaggedValue = vpNode.getTaggedValues().getTaggedValueByName(key);
+        if (vpTaggedValue == null) {
+            return null;
+        }
+
+        return vpTaggedValue.getValue();
+    }
+
+    public static NodeAssembler getInstance() {
+        return INSTANCE;
     }
 }
