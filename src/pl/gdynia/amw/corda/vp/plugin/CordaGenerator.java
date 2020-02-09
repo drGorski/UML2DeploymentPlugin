@@ -7,11 +7,11 @@ public class CordaGenerator implements VPPlugin {
 
     @Override
     public void loaded(VPPluginInfo vpPluginInfo) {
-        System.out.println("Corda Generator loaded");
+        UIHelper.logMessage("Corda Generator loaded");
     }
 
     @Override
     public void unloaded() {
-        System.out.println("Corda Generator unloaded");
+        UIHelper.logMessage("Corda Generator unloaded");
     }
 }

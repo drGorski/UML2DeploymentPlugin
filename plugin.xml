@@ -26,8 +26,7 @@
             <action
                     id="pl.gdynia.amw.corda.vp.plugin.node.NodeGeneratorContextActionController"
                     label="Generate Node configuration"
-                    icon="icons/blue.png"
-                    style="toggle"
+                    style="normal"
                     menuPath="OpenSpecification">
                 <actionController class="pl.gdynia.amw.corda.vp.plugin.node.NodeGeneratorContextActionController"/>
             </action>

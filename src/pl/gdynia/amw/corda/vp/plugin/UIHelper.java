@@ -9,13 +9,22 @@ import java.io.File;
 
 public class UIHelper {
 
-    private static UIHelper INSTANCE = new UIHelper();
-
     private UIHelper() {
 
     }
 
-    public String selectDirectory() {
+    public static void showPopupMessage(String message) {
+        ViewManager viewManager = ApplicationManager.instance().getViewManager();
+        Component parentFrame = viewManager.getRootFrame();
+
+        viewManager.showMessageDialog(parentFrame, message);
+    }
+
+    public static void logMessage(String message) {
+        ApplicationManager.instance().getViewManager().showMessage(message);
+    }
+
+    public static String selectDirectory() {
         ViewManager viewManager = ApplicationManager.instance().getViewManager();
         Component parentFrame = viewManager.getRootFrame();
 
@@ -31,7 +40,4 @@ public class UIHelper {
         return null;
     }
 
-    public static UIHelper getInstance() {
-        return INSTANCE;
-    }
 }

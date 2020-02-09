@@ -1,8 +1,9 @@
 package pl.gdynia.amw.corda.vp.plugin.node;
 
-import com.vp.plugin.ApplicationManager;
 import com.vp.plugin.model.INode;
+import pl.gdynia.amw.corda.vp.plugin.UIHelper;
 import pl.gdynia.amw.dictionary.StereotypesEnum;
+import pl.gdynia.amw.dto.GenerationResult;
 import pl.gdynia.amw.model.node.Node;
 import pl.gdynia.amw.service.CordaGenerator;
 
@@ -30,8 +31,17 @@ public class NodeConfigGenerator {
                     .collect(Collectors.toList()));
         });
 
-        ApplicationManager.instance().getViewManager().showMessage("Generating config files...");
-        CordaGenerator.getInstance().generate(destination, nodes);
+        UIHelper.logMessage("Generating config files...");
+        GenerationResult result = CordaGenerator.getInstance().generate(destination, nodes);
+        switch (result.getStatus()) {
+            case SUCCESS:
+                UIHelper.showPopupMessage("Corda configuration generated successfully.");
+                break;
+            case ERROR:
+                UIHelper.showPopupMessage("Error occured during Corda configuration generation");
+                UIHelper.logMessage(result.getMsg());
+                break;
+        }
     }
 
     public void generateNodesConfiguration(String destination) {
