@@ -1,9 +1,6 @@
 package pl.gdynia.amw.corda.vp.plugin.node;
 
-import pl.gdynia.amw.model.Node;
 import pl.gdynia.amw.service.Generator;
-
-import java.util.stream.Collectors;
 
 public class NodeConfigGenerator {
 
