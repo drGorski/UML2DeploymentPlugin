@@ -3,10 +3,7 @@ package pl.gdynia.amw.corda.vp.plugin.node;
 import com.vp.plugin.ApplicationManager;
 import com.vp.plugin.model.INode;
 import com.vp.plugin.model.factory.IModelElementFactory;
-import pl.gdynia.amw.dictionary.StereotypesEnum;
-import pl.gdynia.amw.model.node.Node;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -19,7 +16,8 @@ public class NodeRetriver {
 
     }
 
-    public Collection<Node> getNodes() {
+    public Collection<INode> getNodes() {
+        ApplicationManager.instance().getViewManager().showMessage("Collecting nodes details...");
         Collection<INode> nodes = Stream.of(ApplicationManager.instance()
                 .getProjectManager()
                 .getProject()
@@ -27,17 +25,9 @@ public class NodeRetriver {
                 .map(model -> (INode) model)
                 .collect(Collectors.toList());
 
-        Collection<Node> result = new ArrayList<>();
+        ApplicationManager.instance().getViewManager().showMessage("Nodes search finished (" + nodes.size() + " nodes found)");
 
-        Stream.of(StereotypesEnum.values()).forEach(nodeType -> {
-            result.addAll(nodes
-                    .stream()
-                    .filter(node -> node.hasStereotype(nodeType.name()))
-                    .map(node -> NodeAssembler.getInstance().buildNode(node, nodeType.getInstance()))
-                    .collect(Collectors.toList()));
-        });
-
-        return result;
+        return nodes;
     }
 
     public static NodeRetriver getInstance() {

@@ -2,7 +2,7 @@
         id="pl.gdynia.amw.corda.vp.plugin"
         name="Generate Corda Code"
         description="Generate Corda Code"
-        provider="Jakub Bednarski @ AMW"
+        provider="Jakub Bednarski, Tomasz Gorski @ AMW"
         class="pl.gdynia.amw.corda.vp.plugin.CordaGenerator">
 
     <actionSets>
@@ -10,14 +10,28 @@
             <action
                     id="pl.gdynia.amw.corda.vp.plugin.node.NodeGeneratorActionController"
                     actionType="generalAction"
-                    label="Generate Node configuration"
-                    tooltip="Generate Node configuration"
+                    label="Generate Nodes configuration"
+                    tooltip="Generate Nodes configuration"
+                    icon="icons/red.png"
                     style="normal"
                     menuPath="Tools/Report">
-                <actionController
-                        class="pl.gdynia.amw.corda.vp.plugin.node.NodeGeneratorActionController"/>
+                <actionController class="pl.gdynia.amw.corda.vp.plugin.node.NodeGeneratorActionController"/>
             </action>
         </actionSet>
+
+        <contextSensitiveActionSet id="pl.gdynia.amw.uml2corda.plugin.actionset2">
+            <contextTypes all="false">
+                <include type="Node"/>
+            </contextTypes>
+            <action
+                    id="pl.gdynia.amw.corda.vp.plugin.node.NodeGeneratorContextActionController"
+                    label="Generate Node configuration"
+                    icon="icons/blue.png"
+                    style="toggle"
+                    menuPath="OpenSpecification">
+                <actionController class="pl.gdynia.amw.corda.vp.plugin.node.NodeGeneratorContextActionController"/>
+            </action>
+        </contextSensitiveActionSet>
     </actionSets>
 
 </plugin>
