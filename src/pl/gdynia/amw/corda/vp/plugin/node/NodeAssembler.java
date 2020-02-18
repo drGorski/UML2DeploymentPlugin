@@ -17,6 +17,8 @@ public class NodeAssembler {
         TaggedValuesDict.getInstance().getValues()
                 .forEach(tv -> node.getProperties().put(tv.getValue(), readTaggedValue(tv.getValue(), vpNode)));
 
+        node.setName(vpNode.getName());
+
         return node;
     }
 

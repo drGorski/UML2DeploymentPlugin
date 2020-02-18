@@ -6,18 +6,18 @@
         class="pl.gdynia.amw.corda.vp.plugin.CordaGenerator">
 
     <actionSets>
-        <actionSet id="pl.gdynia.amw.uml2corda.plugin.actionset">
+        <contextSensitiveActionSet id="pl.gdynia.amw.uml2corda.plugin.actionset">
+            <contextTypes all="false">
+                <include type="Package"/>
+            </contextTypes>
             <action
-                    id="pl.gdynia.amw.corda.vp.plugin.node.NodeGeneratorActionController"
-                    actionType="generalAction"
+                    id="pl.gdynia.amw.corda.vp.plugin.node.NodesGeneratorContextActionController"
                     label="Generate Nodes configuration"
-                    tooltip="Generate Nodes configuration"
-                    icon="icons/red.png"
                     style="normal"
-                    menuPath="Tools/Report">
-                <actionController class="pl.gdynia.amw.corda.vp.plugin.node.NodeGeneratorActionController"/>
+                    menuPath="OpenSpecification">
+                <actionController class="pl.gdynia.amw.corda.vp.plugin.node.NodesGeneratorContextActionController"/>
             </action>
-        </actionSet>
+        </contextSensitiveActionSet>
 
         <contextSensitiveActionSet id="pl.gdynia.amw.uml2corda.plugin.actionset2">
             <contextTypes all="false">
