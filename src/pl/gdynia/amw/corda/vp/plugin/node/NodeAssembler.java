@@ -3,7 +3,7 @@ package pl.gdynia.amw.corda.vp.plugin.node;
 import com.vp.plugin.model.INode;
 import com.vp.plugin.model.ITaggedValue;
 import pl.gdynia.amw.dictionary.TaggedValuesDict;
-import pl.gdynia.amw.model.node.Node;
+import pl.gdynia.amw.model.node.CordaNode;
 
 public class NodeAssembler {
 
@@ -13,13 +13,13 @@ public class NodeAssembler {
 
     }
 
-    public Node buildNode(INode vpNode, Node node) {
+    public CordaNode buildNode(INode vpNode, CordaNode cordaNode) {
         TaggedValuesDict.getInstance().getValues()
-                .forEach(tv -> node.getProperties().put(tv.getValue(), readTaggedValue(tv.getValue(), vpNode)));
+                .forEach(tv -> cordaNode.getProperties().put(tv.getValue(), readTaggedValue(tv.getValue(), vpNode)));
 
-        node.setName(vpNode.getName());
+        cordaNode.setName(vpNode.getName());
 
-        return node;
+        return cordaNode;
     }
 
     private Object readTaggedValue(String key, INode vpNode) {

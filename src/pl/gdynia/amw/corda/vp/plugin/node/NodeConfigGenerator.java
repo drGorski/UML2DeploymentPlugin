@@ -5,7 +5,7 @@ import com.vp.plugin.model.IPackage;
 import pl.gdynia.amw.corda.vp.plugin.UIHelper;
 import pl.gdynia.amw.dictionary.StereotypesEnum;
 import pl.gdynia.amw.dto.GenerationResult;
-import pl.gdynia.amw.model.node.Node;
+import pl.gdynia.amw.model.node.CordaNode;
 import pl.gdynia.amw.service.CordaGenerator;
 
 import java.util.ArrayList;
@@ -22,10 +22,10 @@ public class NodeConfigGenerator {
     }
 
     public void generateNodesConfiguration(String destination, Collection<INode> vpNodes) {
-        Collection<Node> nodes = new ArrayList<>();
+        Collection<CordaNode> cordaNodes = new ArrayList<>();
 
         Stream.of(StereotypesEnum.values()).forEach(nodeType -> {
-            nodes.addAll(vpNodes
+            cordaNodes.addAll(vpNodes
                     .stream()
                     .filter(node -> node.hasStereotype(nodeType.name()))
                     .map(node -> NodeAssembler.getInstance().buildNode(node, nodeType.getInstance()))
@@ -33,7 +33,7 @@ public class NodeConfigGenerator {
         });
 
         UIHelper.logMessage("Generating config files...");
-        GenerationResult result = CordaGenerator.getInstance().generate(destination, nodes);
+        GenerationResult result = CordaGenerator.getInstance().generate(destination, cordaNodes);
         switch (result.getStatus()) {
             case SUCCESS:
                 UIHelper.showPopupMessage("Corda configuration generated successfully.");
