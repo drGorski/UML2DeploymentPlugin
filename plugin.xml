@@ -11,11 +11,11 @@
                 <include type="Package"/>
             </contextTypes>
             <action
-                    id="pl.gdynia.amw.corda.vp.plugin.cordaNode.NodesGeneratorContextActionController"
+                    id="pl.gdynia.amw.corda.vp.plugin.node.NodesGeneratorContextActionController"
                     label="Generate Nodes configuration"
                     style="normal"
                     menuPath="OpenSpecification">
-                <actionController class="pl.gdynia.amw.corda.vp.plugin.cordaNode.NodesGeneratorContextActionController"/>
+                <actionController class="pl.gdynia.amw.corda.vp.plugin.node.NodesGeneratorContextActionController"/>
             </action>
         </contextSensitiveActionSet>
 
@@ -24,11 +24,11 @@
                 <include type="Node"/>
             </contextTypes>
             <action
-                    id="pl.gdynia.amw.corda.vp.plugin.cordaNode.NodeGeneratorContextActionController"
+                    id="pl.gdynia.amw.corda.vp.plugin.node.NodeGeneratorContextActionController"
                     label="Generate Node configuration"
                     style="normal"
                     menuPath="OpenSpecification">
-                <actionController class="pl.gdynia.amw.corda.vp.plugin.cordaNode.NodeGeneratorContextActionController"/>
+                <actionController class="pl.gdynia.amw.corda.vp.plugin.node.NodeGeneratorContextActionController"/>
             </action>
         </contextSensitiveActionSet>
     </actionSets>

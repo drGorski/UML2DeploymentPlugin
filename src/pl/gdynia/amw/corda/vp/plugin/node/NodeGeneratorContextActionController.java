@@ -11,10 +11,7 @@ import java.awt.event.ActionEvent;
 import java.util.Collections;
 
 public class NodeGeneratorContextActionController implements VPContextActionController {
-
-    public NodeGeneratorContextActionController() {
-    }
-
+    
     @Override
     public void performAction(VPAction vpAction, VPContext vpContext, ActionEvent actionEvent) {
         UIHelper.logMessage("Starting nodes config generation for Corda platform");
