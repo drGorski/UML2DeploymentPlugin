@@ -30,10 +30,10 @@ public class HtmlCheckReportBuilder {
                 "       </tr>" +
                 "   </thead>" +
                 "   <tbody>" +
-                "       <tr><td>The same value in UML model and in config file/td></tr>" +
-                "       <tr bgcolor=\"red\"><td>Found in UML model and config file but with different value</td></tr>" +
+                "       <tr><td>The same value in UML model and in config file</td></tr>" +
+                "       <tr bgcolor=\"red\"><td>Found in UML model and config file but with different values</td></tr>" +
                 "       <tr bgcolor=\"yellow\"><td>Found in config file but no entry in UML model</td></tr>" +
-                "       <tr bgcolor=\"orange\"><td>Found in UML model but no entry in config model</td></tr>" +
+                "       <tr bgcolor=\"orange\"><td>Found in UML model but no entry in config file</td></tr>" +
                 "   </tbody>" +
                 "</table><br/><br/>"  +
                 "<table border=\"1\">" +
