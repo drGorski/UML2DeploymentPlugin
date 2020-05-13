@@ -31,6 +31,19 @@
                 <actionController class="pl.gdynia.amw.corda.vp.plugin.node.NodeGeneratorContextActionController"/>
             </action>
         </contextSensitiveActionSet>
+
+        <contextSensitiveActionSet id="pl.gdynia.amw.uml2corda.plugin.actionset3">
+            <contextTypes all="false">
+                <include type="Node"/>
+            </contextTypes>
+            <action
+                    id="pl.gdynia.amw.corda.vp.plugin.node.NodeValidatorContextActionController"
+                    label="Validate  Node configuration"
+                    style="normal"
+                    menuPath="OpenSpecification">
+                <actionController class="pl.gdynia.amw.corda.vp.plugin.node.NodeValidatorContextActionController"/>
+            </action>
+        </contextSensitiveActionSet>
     </actionSets>
 
 </plugin>

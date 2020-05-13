@@ -22,5 +22,6 @@
     <orderEntry type="library" name="orm" level="application" />
     <orderEntry type="library" name="vpplatform" level="application" />
     <orderEntry type="module" module-name="corda-generator" />
+    <orderEntry type="module" module-name="corda-check" />
   </component>
 </module>

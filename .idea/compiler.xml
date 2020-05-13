@@ -8,9 +8,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="corda-generator" />
+        <module name="corda-check" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="corda-check" target="8" />
       <module name="corda-generator" target="8" />
     </bytecodeTargetLevel>
   </component>

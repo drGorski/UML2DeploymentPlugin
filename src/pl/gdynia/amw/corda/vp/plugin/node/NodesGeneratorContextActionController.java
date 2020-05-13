@@ -8,6 +8,7 @@ import com.vp.plugin.model.IPackage;
 import org.apache.commons.lang.StringUtils;
 import pl.gdynia.amw.corda.vp.plugin.UIHelper;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.util.Collection;
 
@@ -16,7 +17,7 @@ public class NodesGeneratorContextActionController implements VPContextActionCon
     @Override
     public void performAction(VPAction vpAction, VPContext vpContext, ActionEvent actionEvent) {
         UIHelper.logMessage("Starting nodes config generation for Corda platform");
-        String destination = UIHelper.selectDirectory();
+        String destination = UIHelper.selectFile(JFileChooser.DIRECTORIES_ONLY, "Select place where Corda configuration will be generated.");
         if (StringUtils.isNotBlank(destination)) {
             UIHelper.logMessage("Configuration will be generated in location: " + destination);
             Collection<INode> nodes = NodeRetriver.getInstance().getNodes((IPackage) vpContext.getModelElement());

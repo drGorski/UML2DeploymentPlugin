@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../corda-check/corda-check.iml" filepath="$PROJECT_DIR$/../corda-check/corda-check.iml" />
       <module fileurl="file://$PROJECT_DIR$/../corda-generator/corda-generator.iml" filepath="$PROJECT_DIR$/../corda-generator/corda-generator.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/corda-generator-vpplugin.iml" filepath="$PROJECT_DIR$/.idea/corda-generator-vpplugin.iml" />
     </modules>
