@@ -38,7 +38,7 @@
             </contextTypes>
             <action
                     id="pl.gdynia.amw.corda.vp.plugin.node.NodeValidatorContextActionController"
-                    label="Validate  Node configuration"
+                    label="Validate Node configuration"
                     style="normal"
                     menuPath="OpenSpecification">
                 <actionController class="pl.gdynia.amw.corda.vp.plugin.node.NodeValidatorContextActionController"/>

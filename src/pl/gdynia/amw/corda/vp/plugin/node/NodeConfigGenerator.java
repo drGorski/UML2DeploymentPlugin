@@ -5,6 +5,7 @@ import com.vp.plugin.model.IPackage;
 import pl.gdynia.amw.corda.vp.plugin.UIHelper;
 import pl.gdynia.amw.dictionary.StereotypesEnum;
 import pl.gdynia.amw.dto.GenerationResult;
+import pl.gdynia.amw.model.Destination;
 import pl.gdynia.amw.model.node.CordaNode;
 import pl.gdynia.amw.service.CordaGenerator;
 
@@ -21,7 +22,7 @@ public class NodeConfigGenerator {
 
     }
 
-    public void generateNodesConfiguration(String destination, Collection<INode> vpNodes) {
+    public void generateNodesConfiguration(Destination destination, Collection<INode> vpNodes) {
         Collection<CordaNode> cordaNodes = new ArrayList<>();
 
         Stream.of(StereotypesEnum.values()).forEach(nodeType -> {
@@ -45,7 +46,7 @@ public class NodeConfigGenerator {
         }
     }
 
-    public void generateNodesConfiguration(String destination, IPackage vpPackage) {
+    public void generateNodesConfiguration(Destination destination, IPackage vpPackage) {
         Collection<INode> nodes = NodeRetriver.getInstance().getNodes(vpPackage);
         generateNodesConfiguration(destination, nodes);
     }

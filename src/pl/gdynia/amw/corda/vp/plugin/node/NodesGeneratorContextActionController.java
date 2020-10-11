@@ -5,24 +5,21 @@ import com.vp.plugin.action.VPContext;
 import com.vp.plugin.action.VPContextActionController;
 import com.vp.plugin.model.INode;
 import com.vp.plugin.model.IPackage;
-import org.apache.commons.lang.StringUtils;
 import pl.gdynia.amw.corda.vp.plugin.UIHelper;
+import pl.gdynia.amw.corda.vp.plugin.config.PluginConfiguration;
+import pl.gdynia.amw.corda.vp.plugin.node.config.DefaultActionController;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.util.Collection;
 
-public class NodesGeneratorContextActionController implements VPContextActionController {
+public class NodesGeneratorContextActionController extends DefaultActionController implements VPContextActionController {
 
     @Override
     public void performAction(VPAction vpAction, VPContext vpContext, ActionEvent actionEvent) {
         UIHelper.logMessage("Starting nodes config generation for Corda platform");
-        String destination = UIHelper.selectFile(JFileChooser.DIRECTORIES_ONLY, "Select place where Corda configuration will be generated.");
-        if (StringUtils.isNotBlank(destination)) {
-            UIHelper.logMessage("Configuration will be generated in location: " + destination);
-            Collection<INode> nodes = NodeRetriver.getInstance().getNodes((IPackage) vpContext.getModelElement());
-            NodeConfigGenerator.getInstance().generateNodesConfiguration(destination, nodes);
-        }
+        PluginConfiguration pluginConfiguration = readPluginConfig(vpContext);
+        Collection<INode> nodes = NodeRetriver.getInstance().getNodes((IPackage) vpContext.getModelElement());
+        NodeConfigGenerator.getInstance().generateNodesConfiguration(pluginConfiguration.getDestination(), nodes);
     }
 
     @Override
